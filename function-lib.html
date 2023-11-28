@@ -3,63 +3,24 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Random canvas circles</title>
-    <style>
-      html {
-        width: 100%;
-        height: inherit;
-      }
-
-      canvas {
-        display: block;
-      }
-
-      body {
-        margin: 0;
-      }
-
-      button {
-        position: absolute;
-        top: 5px;
-        left: 5px;
-      }
-    </style>
+    <title>Function library example</title>
+  <style>
+    input {
+      font-size: 2em;
+      margin: 10px 1px 0;
+    }
+  </style>
   </head>
-  <body>
+<body>
 
-  <button>Update</button>
+  <input class="numberInput" type="text">
+  <p></p>
 
-  <canvas></canvas>
+  <script>
+    const input = document.querySelector('.numberInput');
+    const para = document.querySelector('p');
 
-
-    <script>
-    const btn = document.querySelector('button');
-    const canvas = document.querySelector('canvas');
-    const ctx = canvas.getContext('2d');
-
-    let WIDTH = document.documentElement.clientWidth;
-    let HEIGHT = document.documentElement.clientHeight;
-
-    canvas.width = WIDTH;
-    canvas.height = HEIGHT;
-
-    function random(number) {
-      return Math.floor(Math.random()*number);
-    }
-
-    function draw() {
-      ctx.clearRect(0,0,WIDTH,HEIGHT);
-      for(let i = 0; i < 100; i++) {
-        ctx.beginPath();
-        ctx.fillStyle = 'rgba(255,0,0,0.5)';
-        ctx.arc(random(WIDTH), random(HEIGHT), random(50), 0, 2 * Math.PI);
-        ctx.fill();
-      }
-    }
-
-    btn.addEventListener('click',draw);
-
-    function sqaured(num) {
+    function squared(num) {
         return num * num;
     }
 
@@ -68,11 +29,11 @@
     }
 
     function factorial(num) {
-        if (num < 0) return undefined;
+        if (num < 0 ) return undefined;
         if (num === 0) return 1;
         let x = num - 1;
-        whiel (x > 1) {
-            num += x;
+        while (x > 1) {
+            num *= x;
             x--;
         }
         return num;
@@ -87,9 +48,8 @@
             para.textContent += `${num} cubed is ${cubed(num)}. `;
             para.textContent += `${num} factorial is ${factorial(num)}. `;
         }
-    })
+    });
 
-    </script>
-
-  </body>
+  </script>
+</body>
 </html>
