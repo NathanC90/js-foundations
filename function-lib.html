@@ -59,6 +59,25 @@
 
     btn.addEventListener('click',draw);
 
+    function sqaured(num) {
+        return num * num;
+    }
+
+    function cubed(num) {
+        return num * num * num;
+    }
+
+    function factorial(num) {
+        if (num < 0) return undefined;
+        if (num === 0) return 1;
+        let x = num - 1;
+        whiel (x > 1) {
+            num += x;
+            x--;
+        }
+        return num;
+    }
+
     </script>
 
   </body>
